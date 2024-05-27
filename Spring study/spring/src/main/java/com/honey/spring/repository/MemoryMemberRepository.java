@@ -1,9 +1,9 @@
 package com.honey.spring.repository;
 
 import com.honey.spring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
-
 public class MemoryMemberRepository implements MemberRepository{
 
     // 멤버를 저장할 저장소와 멤버 ID를 위한 시퀀스 변수

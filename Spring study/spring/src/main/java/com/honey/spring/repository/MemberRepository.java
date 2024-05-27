@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 // MemberRepository 인터페이스 정의
+
 public interface MemberRepository {
 
     // 멤버를 저장하는 메서드

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--th 선언, 타임리프 문법-->
+
+
+<style>
+    .home-button {
+        background-color: aquamarine;
+        border: none;
+        color: blue;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 13px;
+    }
+</style>
+<script>
+    function goToHome(){
+        window.location.href = '/'
+    }
+</script>
+<body>
+
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+            </tr>
+            </thead>
+            <tbody>
+                <!--모델 안의 값을 꺼내는 기호 $-->
+            <tr th:each="member : ${members}">      <!--th:each는 타임리프의 문법 : foreach 같은 것-->
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="home-button" onclick="goToHome()"> 뒤로 돌아가기 </button>
+</div>
+
+</body>
+</html>
