@@ -1,10 +1,16 @@
 package com.honey.spring.domain;
 
+import jakarta.persistence.*;
+
 // Member 클래스 정의
+@Entity
 public class Member {
 
-    // 멤버의 ID와 이름을 저장할 필드
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
     private String name;
 
     // ID를 반환하는 getter 메서드

@@ -5,10 +5,12 @@ import com.honey.spring.repository.MemberRepository;
 import com.honey.spring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class MemberService {
 
     // MemberRepository 인터페이스를 구현한 MemoryMemberRepository 인스턴스 생성
