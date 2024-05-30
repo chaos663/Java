@@ -23,9 +23,18 @@ public class MemberService {
 
     // 회원 가입 메서드
     public Long join(Member member) {
-        validateDuplicateMember(member); // 중복 회원 검증
-        memberRepository.save(member); // 회원 정보 저장
-        return member.getId(); // 회원 ID 반환
+
+        long start = System.currentTimeMillis();
+        try {
+            validateDuplicateMember(member); // 중복 회원 검증
+            memberRepository.save(member); // 회원 정보 저장
+            return member.getId(); // 회원 ID 반환
+        }finally {
+            long finish = System.currentTimeMillis();
+            long time = finish - start;
+            System.out.println("join = " + time + "ms");
+        }
+
     }
 
     // 중복 회원 검증 메서드
@@ -42,6 +51,7 @@ public class MemberService {
      */
     public List<Member> findMembers() {
         return memberRepository.findAll(); // 모든 회원 리스트 반환
+
     }
 
     // 특정 회원 조회 메서드
