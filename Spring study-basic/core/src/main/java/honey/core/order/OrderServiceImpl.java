@@ -3,14 +3,21 @@ package honey.core.order;
 import honey.core.discount.DiscountPolicy;
 import honey.core.member.Member;
 import honey.core.member.MemberRepository;
-import honey.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-//    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
+
+    // 생성자 만들어서 생성자 주입
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
+    //    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
 //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
-    private DiscountPolicy discountPolicy;
+
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
         // 회원정보 조회
