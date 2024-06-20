@@ -3,17 +3,19 @@ package honey.core;
 import honey.core.member.Grade;
 import honey.core.member.Member;
 import honey.core.member.MemberService;
-import honey.core.member.MemberServiceImpl;
 import honey.core.order.Order;
 import honey.core.order.OrderService;
-import honey.core.order.OrderServiceImpl;
 
 public class OrderApp {
 
     public static void main(String[] args) {
 
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        AppConfig appConfig = new AppConfig();
+        OrderService orderService = appConfig.orderService();
+        MemberService memberService = appConfig.memberService();
+
+//        MemberService memberService = new MemberServiceImpl(null);
+//        OrderService orderService = new OrderServiceImpl(null,null);
 
         Long memberId = 1L;
         Member member = new Member(memberId,"memberA", Grade.VIP);

@@ -3,13 +3,15 @@ package honey.core;
 import honey.core.member.Grade;
 import honey.core.member.Member;
 import honey.core.member.MemberService;
-import honey.core.member.MemberServiceImpl;
 
 public class MemberApp {
 
     // psvm(public static void main)을 입력하면 main 함수가 자동적으로 생성
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
+
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+//        MemberService memberService = new MemberServiceImpl();
         // 단축키 Ctrl + Alt + V
         Member member = new Member(1L, "memberA", Grade.VIP);
 
