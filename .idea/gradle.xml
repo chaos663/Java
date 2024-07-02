@@ -12,6 +12,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Spring study-basic/core" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Spring study-basic/core" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/Spring study/spring" />
         <option name="modules">
           <set>
