@@ -1,0 +1,18 @@
+{
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.format.settings.url": ".vscode/java-formatter.xml",
+  "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/jdk-17.0.4.jdk/Contents/Home",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-17",
+      "path": "/Library/Java/JavaVirtualMachines/jdk-17.0.4.jdk/Contents/Home",
+      "default": true
+    }
+  ],
+  "java.project.referencedLibraries": [
+    "core/build/libs/**/*.jar"
+  ],
+  "java.import.gradle.java.home": "/Library/Java/JavaVirtualMachines/jdk-17.0.4.jdk/Contents/Home",
+  "java.import.gradle.wrapper.enabled": true
+}

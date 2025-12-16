@@ -2,12 +2,17 @@ package honey.core.member;
 
 public class Member {
 
+    private Long id;
+    private String name;
+    private Grade grade;
+
     // 생성자 생성
     public Member(Long id, String name, Grade grade) {
         this.id = id;
         this.name = name;
         this.grade = grade;
     }
+    
     // Getter,Setter
     public Long getId() {
         return id;
@@ -32,10 +37,4 @@ public class Member {
     public void setGrade(Grade grade) {
         this.grade = grade;
     }
-
-    private Long id;
-    private String name;
-    private Grade grade;
-
-
 }

@@ -10,8 +10,15 @@ public class MemberApp {
     // psvm(public static void main)을 입력하면 main 함수가 자동적으로 생성
     public static void main(String[] args) {
 
-        try ( 
-            AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class)) {
+        // AppConfig appConfig = new AppConfig();
+        // MemberService memberService = appConfig.memberService();
+//        MemberService memberService = new MemberServiceImpl();
+        // 단축키 Ctrl + Alt + V
+
+        AnnotationConfigApplicationContext applicationContext = 
+                new AnnotationConfigApplicationContext(AppConfig.class);
+        
+        try {
             MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
             Member member = new Member(1L, "memberA", Grade.VIP);
 
@@ -23,6 +30,8 @@ public class MemberApp {
             // system.out.println 단축키 sout , soutv
             System.out.println("new member = " + member.getName());
             System.out.println("findMember = " + findMember.getName());
+        } finally {
+            applicationContext.close();
         }
     }
 }

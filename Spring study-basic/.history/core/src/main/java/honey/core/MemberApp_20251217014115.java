@@ -1,5 +1,6 @@
 package honey.core;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import honey.core.member.Grade;
@@ -10,8 +11,15 @@ public class MemberApp {
     // psvm(public static void main)을 입력하면 main 함수가 자동적으로 생성
     public static void main(String[] args) {
 
-        try ( 
-            AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class)) {
+        // AppConfig appConfig = new AppConfig();
+        // MemberService memberService = appConfig.memberService();
+//        MemberService memberService = new MemberServiceImpl();
+        // 단축키 Ctrl + Alt + V
+
+        // try-with-resources로 ApplicationContext 자동 종료
+        try (AnnotationConfigApplicationContext applicationContext = 
+                new AnnotationConfigApplicationContext(AppConfig.class)) {
+            
             MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
             Member member = new Member(1L, "memberA", Grade.VIP);
 
@@ -24,5 +32,6 @@ public class MemberApp {
             System.out.println("new member = " + member.getName());
             System.out.println("findMember = " + findMember.getName());
         }
+        // try 블록 종료 시 자동으로 applicationContext.close() 호출됨
     }
 }

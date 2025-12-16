@@ -1,6 +1,7 @@
 package honey.core;
 
 import honey.core.discount.DiscountPolicy;
+import honey.core.discount.FixDiscountPolicy;
 import honey.core.discount.RateDiscountPolicy;
 import honey.core.member.MemberRepository;
 import honey.core.member.MemberService;
@@ -8,33 +9,26 @@ import honey.core.member.MemberServiceImpl;
 import honey.core.member.MemoryMemberRepository;
 import honey.core.order.OrderService;
 import honey.core.order.OrderServiceImpl;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-    
-    @Bean
     public MemberService memberService(){
+
         return new MemberServiceImpl(memberRepository());
     }
-    
     // memberRepository는 MemoryMemberRepository 사용
-    @Bean
-    public MemberRepository memberRepository() {
+    private MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
 
-    @Bean
     public OrderService orderService(){
         return new OrderServiceImpl(memberRepository(),discountPolicy());
     }
-    
-    @Bean
     public DiscountPolicy discountPolicy(){
         // 정액 할인
-        // return new FixDiscountPolicy();
-        // 정률 할인, 금액의 10%
+//        return new FixDiscountPolicy();
+        //정률 할인, 금액의 10%
         return new RateDiscountPolicy();
     }
 }

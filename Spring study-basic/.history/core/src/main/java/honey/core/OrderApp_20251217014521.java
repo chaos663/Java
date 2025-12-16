@@ -1,8 +1,5 @@
 package honey.core;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import honey.core.member.Grade;
 import honey.core.member.Member;
 import honey.core.member.MemberService;
@@ -25,6 +22,5 @@ public class OrderApp {
 
         System.out.println("order = " + order);
 //        System.out.println("order.calculatePrice = " + order.calculatePrice());
-        ((AnnotationConfigApplicationContext) applicationContext).close();
     }
 }

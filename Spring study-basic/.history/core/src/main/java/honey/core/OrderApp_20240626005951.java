@@ -1,8 +1,5 @@
 package honey.core;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
 import honey.core.member.Grade;
 import honey.core.member.Member;
 import honey.core.member.MemberService;
@@ -13,9 +10,12 @@ public class OrderApp {
 
     public static void main(String[] args) {
 
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-        OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
-        MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
+        AppConfig appConfig = new AppConfig();
+        OrderService orderService = appConfig.orderService();
+        MemberService memberService = appConfig.memberService();
+
+//        MemberService memberService = new MemberServiceImpl(null);
+//        OrderService orderService = new OrderServiceImpl(null,null);
 
         Long memberId = 1L;
         Member member = new Member(memberId,"memberA", Grade.VIP);
@@ -25,6 +25,5 @@ public class OrderApp {
 
         System.out.println("order = " + order);
 //        System.out.println("order.calculatePrice = " + order.calculatePrice());
-        ((AnnotationConfigApplicationContext) applicationContext).close();
     }
 }
